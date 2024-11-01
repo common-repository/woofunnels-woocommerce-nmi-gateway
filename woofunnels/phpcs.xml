@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<ruleset name="WFOCU">
+    <description>FunnelKit</description>
+    <rule ref="WordPressVIPMinimum">
+        <exclude name="WordPressVIPMinimum.Functions"/>
+        <exclude name="WordPressVIPMinimum.Variables"/>
+        <exclude name="WordPressVIPMinimum.Files"/>
+        <exclude name="WordPressVIPMinimum.Performance"/>
+    </rule>
+    <rule ref="WordPress.Files.FileName.InvalidClassFileName">
+
+    </rule>
+    <rule ref="WordPress.Security.ValidatedSanitizedInput">
+        <properties>
+            <property name="customSanitizingFunctions" type="array">
+                <element value="wc_clean"/>
+                <element value="bwf_clean"/>
+            </property>
+        </properties>
+    </rule>
+    <rule ref="WordPressVIPMinimum.Functions.RestrictedFunctions">
+        <properties>
+            <property name="exclude" type="array">
+                <element value="dbDelta"/>
+            </property>
+        </properties>
+    </rule>
+    <rule ref="WordPress.DB">
+        <exclude name="WordPress.DB.DirectDatabaseQuery"/>
+        <exclude name="WordPress.DB.SlowDBQuery"/>
+        <exclude name="WordPress.DB.PreparedSQL"/>
+    </rule>
+    <rule ref="WordPress.Security">
+        <exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped"/>
+    </rule>
+
+</ruleset>
+
+
